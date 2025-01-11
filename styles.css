@@ -1,4 +1,39 @@
-/* Your existing CSS styles */
+/* CSS styles */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(64, 162, 227, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(64, 162, 227, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(64, 162, 227, 0);
+  }
+}
+
 :root {
   --bg-color: #1a1a1a;
   --card-bg: #242424;
@@ -32,7 +67,28 @@ body {
   border-radius: 12px;
   padding: 1.25rem;
   margin-bottom: 1rem;
+
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover .section-title::before {
+  transform: translateY(-50%) scale(1.2);
+}
+
+/* Animation delays for cards */
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
 
 .section-title {
   color: var(--text-secondary);
@@ -40,6 +96,22 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 1rem;
+
+  position: relative;
+  padding-left: 15px;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
 }
 
 .profile {
@@ -56,12 +128,26 @@ body {
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
+  border: 2px solid var(--border-color);
+  padding: 3px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  background-color: var(--card-bg);
+  position: relative;
+}
+
+.profile-image:hover {
+  transform: scale(1.1) rotate(5deg);
+  border-color: var(--accent-color);
 }
 
 .profile-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .profile-info {
@@ -89,6 +175,31 @@ body {
 .social-links a {
   color: var(--text-secondary);
   text-decoration: none;
+
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+}
+
+.social-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .tech-grid {
@@ -105,6 +216,20 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: slideInRight 0.5s ease forwards;
+}
+
+.tech-item:hover {
+  transform: translateY(-3px);
+  background-color: rgba(64, 162, 227, 0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tech-grid .tech-item:nth-child(n) {
+  animation-delay: calc(0.1s * var(--n));
 }
 
 .projects-list {
@@ -120,6 +245,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  background-color: rgba(64, 162, 227, 0.05);
 }
 
 .project-tags {
@@ -135,6 +266,41 @@ body {
   font-size: 0.8rem;
   color: var(--text-secondary);
   white-space: nowrap;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tag:hover {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 2px 5px rgba(64, 162, 227, 0.2);
+}
+
+/* A subtle glow effect to tags */
+.tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.tag:hover::before {
+  left: 100%;
+}
+
+.profile-image.loading {
+  animation: pulse 1.5s infinite;
 }
 
 .experience-list {
@@ -161,6 +327,99 @@ body {
   line-height: 1.6;
 }
 
+.experience-item:hover {
+  transform: translateX(10px);
+}
+
+.experience-item:hover h3 {
+  color: var(--accent-color);
+}
+
+/* Social links enhancements */
+.social-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.social-links i {
+  font-size: 1.2rem;
+}
+
+/* Contact section styles */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background-color: rgba(64, 162, 227, 0.1);
+  transform: translateY(-2px);
+  color: var(--text-primary);
+}
+
+.contact-item i {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+}
+
+.contact-item span {
+  font-size: 0.9rem;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading animation for images */
+img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+img.loaded {
+  opacity: 1;
+}
+
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
   body {
@@ -185,11 +444,21 @@ body {
 
   .experience-item {
     padding: 0.5rem 0;
+
+    transition: all 0.3s ease;
   }
 
   .tag {
     font-size: 0.75rem;
     padding: 0.2rem 0.5rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-item {
+    padding: 0.75rem;
   }
 }
 
