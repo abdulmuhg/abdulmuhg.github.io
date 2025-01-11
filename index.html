@@ -9,6 +9,7 @@
       rel="stylesheet"
     />
     <style>
+      /* Your existing CSS styles */
       :root {
         --bg-color: #1a1a1a;
         --card-bg: #242424;
@@ -28,20 +29,20 @@
         background-color: var(--bg-color);
         color: var(--text-primary);
         line-height: 1.6;
-        padding: 2rem;
+        padding: 1rem;
       }
 
       .container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 2rem;
+        padding: 1rem;
       }
 
       .card {
         background-color: var(--card-bg);
         border-radius: 12px;
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
+        padding: 1.25rem;
+        margin-bottom: 1rem;
       }
 
       .section-title {
@@ -54,9 +55,10 @@
 
       .profile {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 1.5rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
       }
 
       .profile-image {
@@ -64,6 +66,7 @@
         height: 80px;
         border-radius: 50%;
         overflow: hidden;
+        flex-shrink: 0;
       }
 
       .profile-image img {
@@ -72,9 +75,15 @@
         object-fit: cover;
       }
 
+      .profile-info {
+        flex: 1;
+        min-width: 200px;
+      }
+
       .profile-info h1 {
         font-size: 1.5rem;
         margin-bottom: 0.5rem;
+        word-wrap: break-word;
       }
 
       .profile-info p {
@@ -85,6 +94,7 @@
         display: flex;
         gap: 1rem;
         margin-top: 1rem;
+        flex-wrap: wrap;
       }
 
       .social-links a {
@@ -94,8 +104,8 @@
 
       .tech-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.75rem;
         margin-top: 1rem;
       }
 
@@ -108,15 +118,10 @@
         gap: 0.5rem;
       }
 
-      .tech-item img {
-        width: 20px;
-        height: 20px;
-      }
-
       .projects-list {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.75rem;
       }
 
       .project-card {
@@ -124,13 +129,14 @@
         padding: 1rem;
         border-radius: 8px;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        gap: 0.75rem;
       }
 
       .project-tags {
         display: flex;
         gap: 0.5rem;
+        flex-wrap: wrap;
       }
 
       .tag {
@@ -139,77 +145,236 @@
         border-radius: 4px;
         font-size: 0.8rem;
         color: var(--text-secondary);
+        white-space: nowrap;
+      }
+
+      .experience-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .experience-item h3 {
+        color: var(--text-primary);
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .experience-item .position {
+        color: var(--accent-color);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .experience-item .description {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      /* Mobile-specific adjustments */
+      @media (max-width: 768px) {
+        body {
+          padding: 0.5rem;
+        }
+
+        .container {
+          padding: 0.5rem;
+        }
+
+        .profile {
+          gap: 1rem;
+        }
+
+        .project-card {
+          padding: 0.75rem;
+        }
+
+        .tech-grid {
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        }
+
+        .experience-item {
+          padding: 0.5rem 0;
+        }
+
+        .tag {
+          font-size: 0.75rem;
+          padding: 0.2rem 0.5rem;
+        }
+      }
+
+      /* Very small screens */
+      @media (max-width: 360px) {
+        .profile-image {
+          width: 60px;
+          height: 60px;
+        }
+
+        .profile-info h1 {
+          font-size: 1.25rem;
+        }
+
+        .tech-grid {
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <!-- Front End Section -->
-      <div class="card">
-        <div class="section-title">Software Engineer</div>
-        <div class="profile">
-          <div class="profile-image">
-            <img src="/assets/profilepict.jpg" alt="Profile Picture" />
+    <body>
+      <div class="container">
+        <!-- Front End Section -->
+        <div class="card">
+          <div class="section-title">Software Engineer</div>
+          <div class="profile">
+            <div class="profile-image">
+              <img src="assets/profilepict.jpg" alt="Profile Picture" />
+            </div>
+            <div class="profile-info">
+              <h1>Abdul Mughni Al Fikri</h1>
+              <p>
+                Experienced in Android development with Kotlin and modern Android
+                stack.
+              </p>
+              <div class="social-links">
+                <a href="https://github.com/abdulmuhg" target="_blank">GitHub</a>
+                <a
+                  href="https://www.linkedin.com/in/abdulmughniaf/"
+                  target="_blank"
+                  >LinkedIn</a
+                >
+              </div>
+            </div>
           </div>
-          <div class="profile-info">
-            <h1>Abdul Mughni Al Fikri</h1>
-            <p>
-              Experienced in Android development with Kotlin and modern Android
-              stack.
-            </p>
-            <div class="social-links">
-              <a href="https://github.com/abdulmuhg" target="_blank">GitHub</a>
-              <a href="https://www.linkedin.com/in/abdulmughniaf/" target="_blank"
-                >LinkedIn</a
-              >
+        </div>
+    
+        <!-- About Me Section -->
+        <div class="card">
+          <div class="section-title">About Me</div>
+          <p>
+            Android Developer specializing in creating modern mobile applications.
+            Currently working with the latest Android development stack including
+            Kotlin, Jetpack Compose, and other modern technologies.
+          </p>
+        </div>
+    
+        <!-- Tech Stack Section -->
+        <div class="card">
+          <div class="section-title">Some Techs</div>
+          <div class="tech-grid">
+            <div class="tech-item">
+              <span>Kotlin</span>
+            </div>
+            <div class="tech-item">
+              <span>Jetpack Compose</span>
+            </div>
+            <div class="tech-item">
+              <span>Dagger Hilt</span>
+            </div>
+            <div class="tech-item">
+              <span>Room</span>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Experience Section -->
+        <div class="card">
+          <div class="section-title">Experience</div>
+          <div class="experience-list">
+            <div class="experience-item">
+              <h3>TabSquare.AI | Delivery Hero</h3>
+              <p class="position">Android Engineer • September 2022 - Present</p>
+              <p class="description">
+                Focus on Kiosk Self-Ordering app called SmartKiosk. Contributing
+                in developing with latest Android stack (Jetpack Compose with MVVM
+                Architecture). Implementing Unit Test as a basic standard for new
+                features. Monitoring bugs and fixing crashes using Crashlytics and
+                Datadog.
+              </p>
+            </div>
+    
+            <div class="experience-item">
+              <h3>Recommend Group (Sejasa)</h3>
+              <p class="position">
+                Android Developer • April 2021 - September 2022
+              </p>
+              <p class="description">
+                Contributing in Revamp App for Fulfillment & Demand side in
+                Recommend.my. Developing new features like Chats, Calls and Video
+                Calls with Push Notifications. Integrating analytics tools like
+                AppsFlyer for business insights.
+              </p>
+            </div>
+    
+            <div class="experience-item">
+              <h3>Sadigit Software House</h3>
+              <p class="position">
+                Android Developer Intern • January 2020 - June 2020
+              </p>
+              <p class="description">
+                Developed Android apps for government clients. Worked on chat
+                modules, profiles, and homepage features. Integrated with Firebase
+                services and REST APIs.
+              </p>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Projects Section -->
+        <div class="card">
+          <div class="section-title">Selected Projects</div>
+          <div class="projects-list">
+            <div class="project-card">
+              <span>SmartKiosk</span>
+              <div class="project-tags">
+                <span class="tag">Jetpack Compose</span>
+                <span class="tag">Clean Architecture</span>
+                <span class="tag">CI/CD</span>
+                <span class="tag">Unit Test</span>
+                <span class="tag">Datadog</span>
+                <span class="tag">Retool</span>
+                <span class="tag">MVVM</span>
+              </div>
+            </div>
+            <div class="project-card">
+              <span>Sejasa App (Demand)</span>
+              <div class="project-tags">
+                <span class="tag">Android</span>
+                <span class="tag">Appsflyer</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">MVP</span>
+              </div>
+            </div>
+            <div class="project-card">
+              <span>Sejasa Service Provider App (Fulfillment)</span>
+              <div class="project-tags">
+                <span class="tag">Android</span>
+                <span class="tag">Video Call & Chat Features</span>
+                <span class="tag">Mapbox</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">MVVM</span>
+              </div>
+            </div>
+            <div class="project-card">
+              <span>Recommend.my</span>
+              <div class="project-tags">
+                <span class="tag">Android</span>
+                <span class="tag">Messaging</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">MVVM</span>
+              </div>
+            </div>
+            <div class="project-card">
+              <span>Pasar Ikan</span>
+              <div class="project-tags">
+                <span class="tag">ML</span>
+                <span class="tag">Firebase AutoML</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- About Me Section -->
-      <div class="card">
-        <div class="section-title">About Me</div>
-        <p>
-          Android Developer specializing in creating modern mobile applications.
-          Currently working with the latest Android development stack including
-          Kotlin, Jetpack Compose, and other modern technologies.
-        </p>
-      </div>
-
-      <!-- Tech Stack Section -->
-      <div class="card">
-        <div class="section-title">Technology</div>
-        <div class="tech-grid">
-          <div class="tech-item">
-            <span>Kotlin</span>
-          </div>
-          <div class="tech-item">
-            <span>Jetpack Compose</span>
-          </div>
-          <div class="tech-item">
-            <span>Dagger Hilt</span>
-          </div>
-          <div class="tech-item">
-            <span>Room</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Projects Section -->
-      <div class="card">
-        <div class="section-title">Some Projects</div>
-        <div class="projects-list">
-          <div class="project-card">
-            <span>Project Name</span>
-            <div class="project-tags">
-              <span class="tag">Kotlin</span>
-              <span class="tag">Compose</span>
-            </div>
-          </div>
-          <!-- Add more project cards as needed -->
-        </div>
-      </div>
-    </div>
+    </body>
   </body>
 </html>
