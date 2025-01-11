@@ -8,225 +8,21 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <style>
-      /* Your existing CSS styles */
-      :root {
-        --bg-color: #1a1a1a;
-        --card-bg: #242424;
-        --text-primary: #ffffff;
-        --text-secondary: #a0a0a0;
-        --accent-color: #40a2e3;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-primary);
-        line-height: 1.6;
-        padding: 1rem;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 1rem;
-      }
-
-      .card {
-        background-color: var(--card-bg);
-        border-radius: 12px;
-        padding: 1.25rem;
-        margin-bottom: 1rem;
-      }
-
-      .section-title {
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: 1rem;
-      }
-
-      .profile {
-        display: flex;
-        align-items: flex-start;
-        gap: 1.5rem;
-        margin-bottom: 1.5rem;
-        flex-wrap: wrap;
-      }
-
-      .profile-image {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        overflow: hidden;
-        flex-shrink: 0;
-      }
-
-      .profile-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .profile-info {
-        flex: 1;
-        min-width: 200px;
-      }
-
-      .profile-info h1 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-        word-wrap: break-word;
-      }
-
-      .profile-info p {
-        color: var(--text-secondary);
-      }
-
-      .social-links {
-        display: flex;
-        gap: 1rem;
-        margin-top: 1rem;
-        flex-wrap: wrap;
-      }
-
-      .social-links a {
-        color: var(--text-secondary);
-        text-decoration: none;
-      }
-
-      .tech-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 0.75rem;
-        margin-top: 1rem;
-      }
-
-      .tech-item {
-        background-color: rgba(255, 255, 255, 0.05);
-        padding: 0.75rem 1rem;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .projects-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-
-      .project-card {
-        background-color: rgba(255, 255, 255, 0.05);
-        padding: 1rem;
-        border-radius: 8px;
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-
-      .project-tags {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-      }
-
-      .tag {
-        background-color: rgba(255, 255, 255, 0.1);
-        padding: 0.25rem 0.75rem;
-        border-radius: 4px;
-        font-size: 0.8rem;
-        color: var(--text-secondary);
-        white-space: nowrap;
-      }
-
-      .experience-list {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-
-      .experience-item h3 {
-        color: var(--text-primary);
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .experience-item .position {
-        color: var(--accent-color);
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .experience-item .description {
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        line-height: 1.6;
-      }
-
-      /* Mobile-specific adjustments */
-      @media (max-width: 768px) {
-        body {
-          padding: 0.5rem;
-        }
-
-        .container {
-          padding: 0.5rem;
-        }
-
-        .profile {
-          gap: 1rem;
-        }
-
-        .project-card {
-          padding: 0.75rem;
-        }
-
-        .tech-grid {
-          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        }
-
-        .experience-item {
-          padding: 0.5rem 0;
-        }
-
-        .tag {
-          font-size: 0.75rem;
-          padding: 0.2rem 0.5rem;
-        }
-      }
-
-      /* Very small screens */
-      @media (max-width: 360px) {
-        .profile-image {
-          width: 60px;
-          height: 60px;
-        }
-
-        .profile-info h1 {
-          font-size: 1.25rem;
-        }
-
-        .tech-grid {
-          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        }
-      }
-    </style>
+    <!-- Add Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%2340A2E3'/></svg>" />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   </head>
   <body>
     <body>
       <div class="container">
         <!-- Front End Section -->
         <div class="card">
-          <div class="section-title">Software Engineer</div>
+          <div class="section-title">
+            <i class="fas fa-code"></i> Software Engineer
+          </div>
           <div class="profile">
             <div class="profile-image">
               <img src="assets/profilepict.jpg" alt="Profile Picture" />
@@ -253,7 +49,7 @@
 
         <!-- About Me Section -->
         <div class="card">
-          <div class="section-title">About Me</div>
+          <div class="section-title"><i class="fas fa-user"></i> About Me</div>
           <p>
             Android Engineer with 4+ years of experience specializing in
             developing robust mobile applications using modern Android
@@ -270,18 +66,17 @@
             Android Development: Kotlin, Jetpack Compose, MVVM, Clean
             Architecture Dependency Injection: Dagger2, Dagger Hilt Local/Remote
             Data: Room, Retrofit2, Firebase Performance Monitoring: Crashlytics,
-            Datadog Proud finalist of Gemastik 11 Game Development competition
+            Datadog. Proud finalist of Gemastik 11 Game Development competition
             and former teaching assistant for OOP and Algorithm courses at
             Telkom University. Passionate about creating user-centric mobile
             solutions and staying current with the latest Android development
-            practices. Open to connecting with fellow Android developers, tech
-            leaders, and industry professionals.
+            practices.
           </p>
         </div>
 
         <!-- Tech Stack Section -->
         <div class="card">
-          <div class="section-title">My Expertise</div>
+          <div class="section-title"><i class="fas fa-laptop-code"></i> My Expertise</div>
           <div class="tech-grid">
             <div class="tech-item">
               <span>Kotlin</span>
@@ -309,7 +104,7 @@
 
         <!-- Other Section -->
         <div class="card">
-          <div class="section-title">Others</div>
+          <div class="section-title"><i class="fas fa-tools"></i> Others</div>
           <div class="tech-grid">
             <div class="tech-item">
               <span>REST APIs</span>
@@ -342,10 +137,10 @@
               <span>Android Jetpack</span>
             </div>
             <div class="tech-item">
-              <span>Continuous Integration (CI)</span>
+              <span>RxJava</span>
             </div>
             <div class="tech-item">
-              <span>Continuous Delivery (CD)</span>
+              <span>CI/CD</span>
             </div>
             <div class="tech-item">
               <span>Machine Learning</span>
@@ -358,7 +153,7 @@
 
         <!-- Experience Section -->
         <div class="card">
-          <div class="section-title">Experience</div>
+          <div class="section-title"><i class="fas fa-briefcase"></i> Experience</div>
           <div class="experience-list">
             <div class="experience-item">
               <h3>TabSquare.AI | Delivery Hero</h3>
@@ -403,7 +198,7 @@
 
         <!-- Projects Section -->
         <div class="card">
-          <div class="section-title">Selected Projects</div>
+          <div class="section-title"><i class="fas fa-project-diagram"></i> Selected Projects</div>
           <div class="projects-list">
             <div class="project-card">
               <span>SmartKiosk</span>
